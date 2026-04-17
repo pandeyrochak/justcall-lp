@@ -4,20 +4,18 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HeroLeadScrollButtons from "@/components/ui/HeroLeadScrollButtons";
-import type { NavDropdownItem } from "./NavDropdown";
+import type { NavDropdownItem } from "./nav-data";
 
 const NAVBAR_PANEL_TOP = "top-[64px]";
 
 interface MobileMenuProps {
   productItems: NavDropdownItem[];
   solutionsItems: NavDropdownItem[];
-  resourceItems: NavDropdownItem[];
 }
 
 export default function MobileMenu({
   productItems,
   solutionsItems,
-  resourceItems,
 }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -89,7 +87,13 @@ export default function MobileMenu({
               >
                 Pricing
               </Link>
-              <MobileNavAccordion label="Resources" items={resourceItems} onNavigate={close} />
+              <Link
+                href="/"
+                onClick={close}
+                className="py-3 px-2 text-[14px] leading-[22px] text-gray-700 hover:bg-gray-100 rounded-md"
+              >
+                Resources
+              </Link>
 
               <div className="mt-4 pt-4 border-t border-gray-100">
                 <HeroLeadScrollButtons

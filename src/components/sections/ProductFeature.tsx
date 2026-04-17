@@ -51,6 +51,7 @@ export default function ProductFeature({ data }: ProductFeatureProps) {
               src={data.featureImage}
               alt={data.featureTitle}
               fill
+              sizes="(min-width: 1024px) 622px, (min-width: 768px) 560px, 100vw"
               className="object-contain"
             />
           </div>

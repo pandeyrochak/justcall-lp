@@ -3,13 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-export interface NavDropdownItem {
-  label: string;
-  href: string;
-  description?: string;
-  icon?: string;
-}
+import type { NavDropdownItem } from "./nav-data";
 
 interface NavDropdownProps {
   label: string;

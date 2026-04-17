@@ -32,6 +32,7 @@ export default function MidCTA({ data }: MidCTAProps) {
             src={data.image}
             alt=""
             fill
+            sizes="(min-width: 1024px) 394px, (min-width: 768px) 360px, 100vw"
             className="object-contain"
           />
         </div>

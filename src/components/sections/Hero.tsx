@@ -1,7 +1,7 @@
+import Image from "next/image";
 import type { HeroContent } from "@/lib/types/content";
 import Typography from "@/components/ui/Typography";
 import EmailForm from "@/components/ui/EmailForm";
-import ImageWithFallback from "@/components/ui/ImageWithFallback";
 
 interface HeroProps {
   data: HeroContent;
@@ -26,12 +26,14 @@ export default function Hero({ data }: HeroProps) {
         </div>
 
         <div className="relative w-full max-w-[520px] aspect-square">
-          <ImageWithFallback
+          <Image
             src={data.image}
             alt="Hero illustration"
             fill
+            sizes="(min-width: 1024px) 520px, (min-width: 768px) 400px, 100vw"
             className="object-contain"
             priority
+            fetchPriority="high"
           />
         </div>
       </div>

@@ -1,24 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const socialLinks = [
-  { name: "Facebook", icon: "/social-facebook.svg", href: "/" },
-  { name: "X", icon: "/social-x.svg", href: "/" },
-  { name: "Instagram", icon: "/social-instagram.svg", href: "/" },
-  { name: "LinkedIn", icon: "/social-linkedin.svg", href: "/" },
-  { name: "YouTube", icon: "/social-youtube.svg", href: "/" },
+interface SocialLink {
+  name: string;
+  icon: string;
+  href: string;
+  width: number;
+  height: number;
+}
+
+const socialLinks: SocialLink[] = [
+  { name: "Facebook", icon: "/social-facebook.svg", href: "/", width: 10, height: 18 },
+  { name: "X", icon: "/social-x.svg", href: "/", width: 18, height: 18 },
+  { name: "Instagram", icon: "/social-instagram.svg", href: "/", width: 18, height: 18 },
+  { name: "LinkedIn", icon: "/social-linkedin.svg", href: "/", width: 18, height: 18 },
+  { name: "YouTube", icon: "/social-youtube.svg", href: "/", width: 20, height: 14 },
 ];
 
 export default function Footer() {
   return (
     <footer className="relative bg-blue-900 overflow-hidden min-h-[256px]">
-      <Image
-        src="/footer-pattern.svg"
-        alt=""
-        width={1440}
-        height={130}
-        className="absolute bottom-0 left-0 w-full h-auto pointer-events-none"
+      <div
         aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-0 w-full aspect-1440/130 bg-[url('/footer-pattern.svg')] bg-no-repeat bg-size-[100%_100%]"
       />
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-8 py-[60px]">
@@ -57,9 +61,9 @@ export default function Footer() {
               >
                 <Image
                   src={social.icon}
-                  alt={social.name}
-                  width={0}
-                  height={19}
+                  alt=""
+                  width={social.width}
+                  height={social.height}
                   className="h-[19px] w-auto"
                 />
               </Link>
