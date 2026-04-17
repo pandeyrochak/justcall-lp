@@ -30,7 +30,7 @@ export async function wpFetch<T>(endpoint: string): Promise<T> {
   const requestBaseUrl = WP_BASE_URL.replace(/\/$/, "");
 
   const res = await fetch(`${requestBaseUrl}${normalizedEndpoint}`, {
-    next: { tags: ["landing-page"] },
+    cache: 'no-store' 
   });
 
   if (!res.ok) {
