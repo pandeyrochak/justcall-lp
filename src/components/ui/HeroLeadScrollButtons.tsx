@@ -27,12 +27,14 @@ export default function HeroLeadScrollButtons({
     onAfterNavigate?.();
   }
 
+  const equalWidthOnMobile = !stacked && !fullWidth && "flex-1 sm:flex-initial";
+
   const outlineButton = (
     <Button
       type="button"
       variant="outline"
       size={size}
-      className={cn(fullWidth && "w-full")}
+      className={cn(fullWidth && "w-full", equalWidthOnMobile)}
       onClick={handleClick}
     >
       Book a Demo
@@ -44,7 +46,7 @@ export default function HeroLeadScrollButtons({
       type="button"
       variant="primary"
       size={size}
-      className={cn(fullWidth && "w-full")}
+      className={cn(fullWidth && "w-full", equalWidthOnMobile)}
       onClick={handleClick}
     >
       Start Free Trial
