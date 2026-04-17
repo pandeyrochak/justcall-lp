@@ -24,11 +24,13 @@ export async function wpFetch<T>(endpoint: string): Promise<T> {
     throw new Error("Missing required environment variable: WP_BASE_URL");
   }
 
-  const normalizedEndpoint = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
+  const normalizedEndpoint = endpoint.startsWith("/")
+    ? endpoint
+    : `/${endpoint}`;
   const requestBaseUrl = WP_BASE_URL.replace(/\/$/, "");
 
   const res = await fetch(`${requestBaseUrl}${normalizedEndpoint}`, {
-    next: { revalidate: 3600 },
+    next: { tags: ["landing-page"] },
   });
 
   if (!res.ok) {

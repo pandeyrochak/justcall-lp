@@ -9,7 +9,7 @@ import ProblemSkeleton from "@/components/sections/ProblemSkeleton";
 import ProductFeatureSkeleton from "@/components/sections/ProductFeatureSkeleton";
 import MidCTASkeleton from "@/components/sections/MidCTASkeleton";
 
-export const revalidate = 3600;
+// export const revalidate = 3600;
 
 async function LandingContent() {
   const data = await getLandingPageData();
