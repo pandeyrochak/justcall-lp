@@ -1,13 +1,9 @@
-import { revalidateTag } from 'next/cache';
-import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from "next/cache";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
-  const tag = request.nextUrl.searchParams.get('tag');
-  
-  if (tag) {
-    revalidateTag(tag, "max");
-    return NextResponse.json({ revalidated: true, now: Date.now() });
-  }
+  // Instead of tag, let's just clear the whole page
+  revalidatePath("/"); // Or '/landing-page' if that's your route
 
-  return NextResponse.json({ revalidated: false, message: 'Missing tag' });
+  return NextResponse.json({ revalidated: true, now: Date.now() });
 }

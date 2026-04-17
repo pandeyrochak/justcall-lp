@@ -29,9 +29,7 @@ export async function wpFetch<T>(endpoint: string): Promise<T> {
     : `/${endpoint}`;
   const requestBaseUrl = WP_BASE_URL.replace(/\/$/, "");
 
-  const res = await fetch(`${requestBaseUrl}${normalizedEndpoint}`, {
-    cache: 'no-store' 
-  });
+  const res = await fetch(`${requestBaseUrl}${normalizedEndpoint}`);
 
   if (!res.ok) {
     throw new ApiError(res.status, res.statusText);
